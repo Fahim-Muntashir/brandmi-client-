@@ -12,7 +12,7 @@ import { LogOut } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 const UserMenu = () => {
-  const userName = false;
+  const userName = true;
 
   return (
     <>

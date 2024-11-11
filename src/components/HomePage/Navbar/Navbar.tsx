@@ -22,8 +22,8 @@ export default function Navbar() {
       <header className=" w-full border-b  ">
         <div className="container mx-auto px-4 flex h-14 items-center">
           {/* logo  */}
-          <div className="mr-4 hidden md:flex items-center">
-            <Link href="/" className="flex items-center mb-4">
+          <div className="hidden md:flex items-center">
+            <Link href="/" className="flex items-center ">
               <Image src={logo} width={150} height={200} alt="logo" />
             </Link>
           </div>
