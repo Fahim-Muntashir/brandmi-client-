@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <>
       <Navbar />
-      <Footer></Footer>{" "}
+      <Footer></Footer>
     </>
   );
 };

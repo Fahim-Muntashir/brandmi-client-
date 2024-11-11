@@ -5,6 +5,8 @@ import ToggleMode from "./ToogleMode";
 import MobileNavbar from "./MobileNavbar";
 import UserMenu from "./UserMenu";
 import { usePathname } from "next/navigation";
+import logo from "@/../src/assests/logomain.png";
+import Image from "next/image";
 
 export const navItems = [
   { href: "/", label: "Home" },
@@ -20,11 +22,9 @@ export default function Navbar() {
       <header className=" w-full border-b  ">
         <div className="container mx-auto px-4 flex h-14 items-center">
           {/* logo  */}
-          <div className="mr-4 hidden md:flex">
-            <Link href="/" className="mr-6 flex items-center space-x-2">
-              <span className="hidden font-bold sm:inline-block text-xl">
-                Our logo
-              </span>
+          <div className="mr-4 hidden md:flex items-center">
+            <Link href="/" className="flex items-center mb-4">
+              <Image src={logo} width={150} height={200} alt="logo" />
             </Link>
           </div>
           {/* mobile view */}

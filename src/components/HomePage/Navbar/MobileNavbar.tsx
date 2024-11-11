@@ -10,6 +10,8 @@ import { Menu } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { navItems } from "./Navbar";
+import Image from "next/image";
+import logo from "@/../src/assests/logomain.png";
 
 const MobileNavbar = () => {
   const [onOpen, setOnOpen] = useState(false);
@@ -35,8 +37,8 @@ const MobileNavbar = () => {
       >
         <SheetHeader className="mb-4 mt-8">
           <SheetTitle className="flex gap-2 ">
-            <Link href="/" className=" flex items-center space-x-2">
-              <span className="font-bold text-2xl ">Our logo</span>
+            <Link href="/" className="flex items-center mb-4">
+              <Image src={logo} width={150} height={200} alt="logo" />
             </Link>
           </SheetTitle>
         </SheetHeader>
