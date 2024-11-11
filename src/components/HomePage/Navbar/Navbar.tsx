@@ -37,7 +37,7 @@ export default function Navbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className={`text-sm font-medium  hover:text-primary ${
+                  className={`text-[16px] font-semibold  hover:text-primary ${
                     pathname === item.href
                       ? "text-primary"
                       : "text-muted-foreground"
