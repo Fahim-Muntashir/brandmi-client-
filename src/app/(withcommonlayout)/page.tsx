@@ -1,15 +1,15 @@
 import Banner from "@/components/HomePage/Banner";
-
 import Footer from "@/components/HomePage/Footer";
+import Navbar from "@/components/HomePage/Navbar/Navbar";
 
 const HomePage = () => {
   return (
     <>
-      Hello For Home
+      <Navbar />
       <Banner />
-      <h2> Banner from nizam </h2>
-      <Footer></Footer>
+      <Footer />
     </>
   );
 };
+
 export default HomePage;
