@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -7,16 +8,12 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
-import Link from "next/link";
 import { useState } from "react";
-import { navItems } from "./Navbar";
-import Image from "next/image";
-import logo from "@/../src/assests/logomain.png";
-import { usePathname } from "next/navigation";
+import NavItems from "./NavItems";
+import Logo from "./Logo";
 
 const MobileNavbar = () => {
   const [onOpen, setOnOpen] = useState(false);
-  const pathname = usePathname();
   const handleMobileMenu = () => {
     setOnOpen(true);
   };
@@ -39,29 +36,10 @@ const MobileNavbar = () => {
       >
         <SheetHeader className="mb-4 ">
           <SheetTitle>
-            <Link href="/" className="flex items-center mb-4">
-              <Image src={logo} width={150} height={200} alt="logo" />
-            </Link>
+            <Logo />
           </SheetTitle>
         </SheetHeader>
-        <ul className="flex flex-col gap-4">
-          {navItems.map((item) => {
-            return (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className={`text-[16px] font-semibold  hover:text-primary ${
-                    pathname === item.href
-                      ? "text-primary"
-                      : "text-muted-foreground"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        <NavItems />
       </SheetContent>
     </Sheet>
   );
