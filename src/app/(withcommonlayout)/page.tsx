@@ -1,8 +1,10 @@
+import Banner from "@/components/HomePage/Banner";
+
 const HomePage = () => {
   return (
     <>
       Hello For Home
-      <h2> Banner from nizam </h2>
+      <Banner />
     </>
   );
 };
