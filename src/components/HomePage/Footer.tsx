@@ -101,7 +101,7 @@ export default function Footer() {
                         </div>
                     </div>
                     <div className="mt-8 flex flex-col md:flex-row justify-between items-center">
-                        <p className="text-sm text-gray-500">&copy; {new Date().getFullYear()} FreelanceHub. All rights reserved.</p>
+                        <p className="text-sm text-gray-500">&copy; {new Date().getFullYear()} Brandme. All rights reserved.</p>
                         <nav className="flex flex-wrap justify-center space-x-6 mt-4 md:mt-0">
                             <Link href="#" className="text-sm text-gray-500 hover:text-gray-900">Terms of Service</Link>
                             <Link href="#" className="text-sm text-gray-500 hover:text-gray-900">Privacy Policy</Link>
