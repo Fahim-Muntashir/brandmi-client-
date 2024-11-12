@@ -1,8 +1,8 @@
-import ToggleMode from "./ToogleMode";
-import MobileNavbar from "./MobileNavbar";
-import UserMenu from "./UserMenu";
-import NavItems from "./NavItems";
 import Logo from "./Logo";
+import MobileNavbar from "./MobileNavbar";
+import NavItems from "./NavItems";
+import ToggleMode from "./ToogleMode";
+import UserMenu from "./UserMenu";
 
 export const navItems = [
   { href: "/", label: "Home" },
@@ -14,7 +14,7 @@ export const navItems = [
 export default function Navbar() {
   return (
     <main>
-      <header className=" w-full border-b  ">
+      <header className=" w-full border-b fixed top-0 left-0 bg-white shadow-md z-50 ">
         <div className="container mx-auto px-4 flex h-14 items-center">
           {/* logo  */}
           <div className="hidden md:flex items-center">
