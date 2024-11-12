@@ -1,8 +1,8 @@
-import ToggleMode from "./ToogleMode";
-import MobileNavbar from "./MobileNavbar";
-import UserMenu from "./UserMenu";
-import NavItems from "./NavItems";
 import Logo from "./Logo";
+import MobileNavbar from "./MobileNavbar";
+import NavItems from "./NavItems";
+import ToggleMode from "./ToogleMode";
+import UserMenu from "./UserMenu";
 
 export const navItems = [
   { href: "/", label: "Home" },
