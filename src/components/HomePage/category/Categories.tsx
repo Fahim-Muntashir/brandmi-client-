@@ -77,8 +77,8 @@ const Categories = ({ initialVisibleCount }: CategoriesProps) => {
       </div>
 
       {visibleCount < categories.length && (
-        <div className="mt-4">
-          <Button onClick={() => setShowAll(!showAll)}>
+        <div className="mt-4 flex justify-center">
+          <Button variant={"outline"} onClick={() => setShowAll(!showAll)}>
             {showAll ? "Show Less" : `Show ${remainingCategories} More`}
           </Button>
         </div>
