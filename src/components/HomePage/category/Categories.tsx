@@ -66,7 +66,7 @@ const Categories = ({ initialVisibleCount }: CategoriesProps) => {
     <div className="container px-4 mx-auto py-8 w-full">
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-9 gap-4">
         {visibleCategories.map((category) => (
-          <Card key={category.id} className="cursor-pointer">
+          <Card key={category.id} className="cursor-pointer categoryCard">
             <CardContent className="flex flex-col justify-center items-start gap-4 px-3 py-4">
               <div className="h-8 w-8">{category.icon}</div>
               <h3 className="text-sm font-semibold text-muted-foreground">
