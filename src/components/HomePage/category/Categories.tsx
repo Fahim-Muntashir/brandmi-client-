@@ -45,9 +45,10 @@ const Categories = ({ initialVisibleCount }: CategoriesProps) => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
       if (screenWidth >= 1280)
-        setVisibleCount(categories.length); // track large device
-      else if (screenWidth >= 768 && screenWidth <= 1280) setVisibleCount(8);
-      else setVisibleCount(6);
+        setVisibleCount(categories.length); //  large device
+      else if (screenWidth >= 768 && screenWidth <= 1280)
+        setVisibleCount(8); // medium device
+      else setVisibleCount(6); // small device
     };
 
     handleResize();
