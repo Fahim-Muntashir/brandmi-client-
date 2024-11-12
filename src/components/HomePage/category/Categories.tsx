@@ -45,9 +45,10 @@ const Categories = ({ initialVisibleCount }: CategoriesProps) => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
       if (screenWidth >= 1280)
-        setVisibleCount(categories.length); // track large device
-      else if (screenWidth >= 768 && screenWidth <= 1280) setVisibleCount(8);
-      else setVisibleCount(6);
+        setVisibleCount(categories.length); //  large device
+      else if (screenWidth >= 768 && screenWidth <= 1280)
+        setVisibleCount(8); // medium device
+      else setVisibleCount(6); // small device
     };
 
     handleResize();
@@ -65,7 +66,7 @@ const Categories = ({ initialVisibleCount }: CategoriesProps) => {
     <div className="container px-4 mx-auto py-8 w-full">
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-9 gap-4">
         {visibleCategories.map((category) => (
-          <Card key={category.id} className="cursor-pointer">
+          <Card key={category.id} className="cursor-pointer categoryCard">
             <CardContent className="flex flex-col justify-center items-start gap-4 px-3 py-4">
               <div className="h-8 w-8">{category.icon}</div>
               <h3 className="text-sm font-semibold text-muted-foreground">
@@ -77,8 +78,8 @@ const Categories = ({ initialVisibleCount }: CategoriesProps) => {
       </div>
 
       {visibleCount < categories.length && (
-        <div className="mt-4">
-          <Button onClick={() => setShowAll(!showAll)}>
+        <div className="mt-4 flex justify-center">
+          <Button variant={"outline"} onClick={() => setShowAll(!showAll)}>
             {showAll ? "Show Less" : `Show ${remainingCategories} More`}
           </Button>
         </div>

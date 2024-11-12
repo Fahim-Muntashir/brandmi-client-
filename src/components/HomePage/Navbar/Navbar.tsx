@@ -13,9 +13,9 @@ export const navItems = [
 
 export default function Navbar() {
   return (
-    <main>
-      <header className=" w-full border-b fixed top-0 left-0 bg-white shadow-md z-50 ">
-        <div className="container mx-auto px-4 flex h-14 items-center">
+    <main className="sticky top-0 z-50">
+      <header className="w-full border-b bg-white dark:bg-black ">
+        <div className="container mx-auto px-4 flex h-14 items-center ">
           {/* logo  */}
           <div className="hidden md:flex items-center">
             <Logo />
