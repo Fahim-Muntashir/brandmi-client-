@@ -4,20 +4,22 @@ import Footer from "@/components/HomePage/Footer/Footer";
 import Navbar from "@/components/HomePage/Navbar/Navbar";
 import PopularServices from "@/components/HomePage/PopularServices/TrendingOffers";
 import BusinessSolution from "@/components/HomePage/BusinessSolution/BusinessSolution";
+import Members from "@/components/members/Members";
 
 const HomePage = () => {
-    return (
-        <>
-            <div className="bg-[#D1D6E2]">
-                <Navbar />
-                <Banner />
-            </div>
-            <Category />
-            <PopularServices />
-            <BusinessSolution />
-            <Footer />
-        </>
-    );
+  return (
+    <>
+      <Navbar />
+      <Banner />
+
+      <Category />
+      <PopularServices />     
+      <BusinessSolution />
+      <Members />
+      <Footer />
+    </>
+  );
 };
 
 export default HomePage;
+
