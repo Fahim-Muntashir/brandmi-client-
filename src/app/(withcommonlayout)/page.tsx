@@ -3,6 +3,7 @@ import Banner from "@/components/HomePage/Banner/Banner";
 import Footer from "@/components/HomePage/Footer/Footer";
 import Navbar from "@/components/HomePage/Navbar/Navbar";
 import PopularServices from "@/components/HomePage/PopularServices/TrendingOffers";
+import BusinessSolution from "@/components/HomePage/BusinessSolution/BusinessSolution";
 
 const HomePage = () => {
     return (
@@ -13,6 +14,7 @@ const HomePage = () => {
             </div>
             <Category />
             <PopularServices />
+            <BusinessSolution />
             <Footer />
         </>
     );
