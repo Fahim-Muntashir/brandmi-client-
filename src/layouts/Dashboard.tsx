@@ -11,7 +11,7 @@ const Dashboard = ({ children }: DashboardProps) => {
     <div className="flex h-screen max-w-[1400px] mx-auto">
       {/* sidebar */}
       <Sidebar />
-
+      {/*  hi */}
       {/* right area */}
       <div className="flex flex-col flex-1 overflow-hidden ">
         {/* header */}
