@@ -78,7 +78,7 @@ body {
     @apply bg-background text-foreground;
   }
 }
-
+/* category card custom css */
 .categoryCard:hover {
   background: radial-gradient(
     63.44% 63.44% at 50% 50%,
@@ -86,4 +86,18 @@ body {
     var(--category-bg) 100%
   );
   /* var(--mqvym54); */
+}
+/* slider custom css */
+.react-multi-carousel-list {
+  padding: 35px 0 !important;
+  /* background-color: red; */
+}
+
+@media (min-width: 1025px) {
+  .react-multi-carousel-dot-list {
+    display: none !important;
+  }
+}
+.react-multi-carousel-item {
+  padding: 0 8px !important;
 }
