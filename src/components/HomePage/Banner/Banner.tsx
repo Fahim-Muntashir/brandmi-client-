@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
+import bannerimg from '@/../src/assests/home.png'
+import Image from "next/image";
 
 export default function Banner() {
   return (
     <section className="container mx-auto px-4 items-center pt-16 mb-12">
-      <div className=" grid grid-cols-1 md:grid-cols-2 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center">
         <div>
           <h1 className="text-5xl font-semibold my-8">
             {" "}
@@ -19,9 +21,8 @@ export default function Banner() {
           </p>
           <Button className="my-8"> See You Soon </Button>
         </div>
-        <div className="flex items-center gap-4 ms-32">
-          <h3> image </h3>
-          <h3> card </h3>
+        <div className="flex items-center justify-center gap-4 ">
+          <Image src={bannerimg} alt="" width={400} />
         </div>
       </div>
     </section>
