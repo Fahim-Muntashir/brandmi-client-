@@ -20,7 +20,7 @@ const LogoCollapsed = ({
         variant="ghost"
         onClick={() => setCollapsed(!collapsed)}
         size="icon"
-        className="hidden lg:block"
+        className="opacity-0 lg:opacity-100 pointer-events-none lg:pointer-events-auto"
       >
         {collapsed ? <ChevronRight /> : <ChevronLeft />}
       </Button>
