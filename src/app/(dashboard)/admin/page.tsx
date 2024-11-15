@@ -1,4 +1,4 @@
 const page = () => {
-  return <div>this is admin board</div>;
+  return <div className="">AH Fahim</div>;
 };
 export default page;

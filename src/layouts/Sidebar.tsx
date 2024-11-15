@@ -1,33 +1,52 @@
 "use client";
-import Logo from "@/components/HomePage/Navbar/Logo";
-import { Button } from "@/components/ui/button";
+import AdminSidebar from "@/components/dashboard/sidebarContent/AdminSidebar";
 import { cn } from "@/lib/utils";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
+import LogoCollapsed from "./LogoCollapsed";
+import { Menu } from "lucide-react";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { DialogTitle } from "@radix-ui/react-dialog";
 
 const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);
+
+  const handleMobileMenu = () => {
+    setMobileMenu(true);
+  };
+
   return (
-    <aside
-      className={cn(
-        `fixed inset-y left-0 z-50  border-r transition-all duration-300 ease-in-out md:relative lg:block hidden`,
-        collapsed ? "w-16" : "w-48"
-      )}
-    >
-      {/* sidebar header */}
-      <div className="flex  items-center justify-between px-2 py-2">
-        <h1 className={cn(` font-semibold`, collapsed && "hidden")}>
-          <Logo />
-        </h1>
-        <Button
-          variant="ghost"
-          onClick={() => setCollapsed(!collapsed)}
-          size="icon"
-        >
-          {collapsed ? <ChevronRight /> : <ChevronLeft />}
-        </Button>
+    <div className="relative">
+      <aside
+        className={cn(
+          `fixed inset-y left-0 z-50 h-full  border-r transition-all duration-300 ease-in-out md:relative lg:block hidden `,
+          collapsed ? "w-16" : "w-48"
+        )}
+      >
+        {/* sidebar fixed header */}
+        <LogoCollapsed collapsed={collapsed} setCollapsed={setCollapsed} />
+
+        {/* sidebar content for large device*/}
+        <AdminSidebar collapsed={collapsed} />
+        {/* sidebar for mobile device */}
+      </aside>
+      {/* mobile menu button */}
+      <div
+        onClick={handleMobileMenu}
+        className="bg-green-400 z-50 p-2 absolute top-[11px] left-[17px] lg:hidden block "
+      >
+        <Menu />
       </div>
-    </aside>
+      {/* mobile menu button */}
+      <Sheet open={mobileMenu} onOpenChange={setMobileMenu}>
+        <SheetContent side="left" className="w-64 p-0">
+          <DialogTitle className="flex justify-center">
+            <LogoCollapsed />
+          </DialogTitle>
+          <AdminSidebar />
+        </SheetContent>
+      </Sheet>
+    </div>
   );
 };
 export default Sidebar;
