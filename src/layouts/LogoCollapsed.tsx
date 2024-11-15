@@ -20,12 +20,9 @@ const LogoCollapsed = ({
         variant="ghost"
         onClick={() => setCollapsed(!collapsed)}
         size="icon"
+        className="hidden lg:block"
       >
-        {collapsed ? (
-          <ChevronRight className="hidden lg:block" />
-        ) : (
-          <ChevronLeft className="hidden lg:block" />
-        )}
+        {collapsed ? <ChevronRight /> : <ChevronLeft />}
       </Button>
     </div>
   );
