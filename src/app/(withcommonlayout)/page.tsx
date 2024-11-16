@@ -7,10 +7,8 @@ import PopularServices from "@/components/HomePage/PopularServices/TrendingOffer
 const HomePage = () => {
     return (
         <>
-            <div className="bg-[#D1D6E2]">
-                <Navbar />
-                <Banner />
-            </div>
+            <Navbar />
+            <Banner />
             <Category />
             <PopularServices />
             <Footer />
