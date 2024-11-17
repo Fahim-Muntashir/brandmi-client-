@@ -6,7 +6,7 @@ import UserSetting from "@/components/dashboard/headerContent/UserSetting";
 
 const Header = () => {
   return (
-    <header className="flex  items-center pl-20 pr-6 lg:px-6 py-2 border-b bg-blue-600">
+    <header className="flex  items-center pl-20 pr-6 lg:px-6 py-2 border-b ">
       <GlobalSearch />
       <div className="flex items-center gap-5">
         <Notification />

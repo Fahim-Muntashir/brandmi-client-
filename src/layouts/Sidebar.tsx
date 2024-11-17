@@ -6,14 +6,29 @@ import LogoCollapsed from "./LogoCollapsed";
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { DialogTitle } from "@radix-ui/react-dialog";
+import { Button } from "@/components/ui/button";
 
-const Sidebar = () => {
+interface SidebarProps {
+  userRole: string;
+}
+
+const Sidebar = ({ userRole }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
 
   const handleMobileMenu = () => {
     setMobileMenu(true);
   };
+
+  let sidebarItems;
+  switch (userRole) {
+    case "admin":
+      sidebarItems = <AdminSidebar collapsed={collapsed} />;
+      break;
+
+    default:
+      break;
+  }
 
   return (
     <div className="relative">
@@ -27,23 +42,24 @@ const Sidebar = () => {
         <LogoCollapsed collapsed={collapsed} setCollapsed={setCollapsed} />
 
         {/* sidebar content for large device*/}
-        <AdminSidebar collapsed={collapsed} />
+        {sidebarItems}
         {/* sidebar for mobile device */}
       </aside>
       {/* mobile menu button */}
-      <div
+      <Button
+        variant="outline"
         onClick={handleMobileMenu}
-        className="bg-green-400 z-50 p-2 absolute top-[11px] left-[17px] lg:hidden block "
+        className=" z-50 p-2 absolute top-[11px] left-[17px] lg:hidden block   "
       >
         <Menu />
-      </div>
+      </Button>
       {/* mobile menu button */}
       <Sheet open={mobileMenu} onOpenChange={setMobileMenu}>
         <SheetContent side="left" className="w-64 p-0">
           <DialogTitle className="flex justify-center">
             <LogoCollapsed />
           </DialogTitle>
-          <AdminSidebar />
+          {sidebarItems}
         </SheetContent>
       </Sheet>
     </div>

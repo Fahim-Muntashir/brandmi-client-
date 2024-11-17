@@ -1,6 +1,6 @@
 const page = () => {
   return (
-    <div className="bg-purple-100">
+    <div className="">
       <h1>AH Fahim</h1>
       <div>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt id

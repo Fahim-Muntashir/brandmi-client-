@@ -13,7 +13,7 @@ const UserSetting = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <div className="relative inline-block">
+        <div className="relative inline-block cursor-pointer">
           <Image
             src={profile}
             alt="profile image"
