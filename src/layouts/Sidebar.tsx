@@ -34,7 +34,7 @@ const Sidebar = ({ userRole }: SidebarProps) => {
     <div className="relative">
       <aside
         className={cn(
-          `fixed inset-y left-0 z-50 h-full  border-r transition-all duration-300 ease-in-out md:relative lg:block hidden `,
+          `fixed inset-y left-0 z-50 h-full   border-r transition-all duration-300 ease-in-out md:relative  lg:block hidden bg-gray-200 `,
           collapsed ? "w-16" : "w-48"
         )}
       >

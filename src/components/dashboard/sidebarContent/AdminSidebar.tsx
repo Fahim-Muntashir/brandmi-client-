@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navItems = [
-  { name: "Home", href: "/admin", icon: Home },
+  { name: "Home", href: "/dashboard", icon: Home },
   { name: "Users", href: "/dashboard/users", icon: Users },
   { name: "Settings", href: "/dashboard/settings", icon: Settings },
 ];
@@ -23,7 +23,7 @@ const AdminSidebar = ({ collapsed }: SidebarProps) => {
             className={cn(
               "flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors",
               pathname === link.href
-                ? "bg-secondary text-secondary-foreground"
+                ? "bg-black text-white"
                 : "text-muted-foreground hover:bg-secondary hover:text-secondary-foreground "
             )}
             href={link.href}

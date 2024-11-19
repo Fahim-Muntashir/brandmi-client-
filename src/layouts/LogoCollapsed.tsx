@@ -12,7 +12,7 @@ const LogoCollapsed = ({
   setCollapsed?: any;
 }) => {
   return (
-    <div className="flex  items-center justify-between px-2 py-2 mb-6">
+    <div className="flex  items-center justify-center  px-2 py-2 mb-6 ">
       <h1 className={cn(` font-semibold`, collapsed && "hidden")}>
         <Logo />
       </h1>

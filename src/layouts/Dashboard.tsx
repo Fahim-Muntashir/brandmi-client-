@@ -14,8 +14,8 @@ const Dashboard = ({ children }: DashboardProps) => {
       <div className="flex flex-col flex-1 overflow-hidden ">
         {/* header */}
         <Header />
-        <main className="flex-1 overflow-y-auto overflow-x-hidden scrollbar-custom">
-          <div className="w-full h-full  px-6 py-6 ">{children}</div>
+        <main className="flex-1 flex flex-col overflow-y-auto overflow-x-hidden scrollbar-custom">
+          <div className=" flex-1  px-6 py-6 bg-black/60 ">{children}</div>
         </main>
       </div>
     </div>
