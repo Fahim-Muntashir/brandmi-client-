@@ -11,6 +11,8 @@ export const navItems = [
   { href: "/dashboard", label: "dashboard" },
 ];
 
+
+
 export default function Navbar() {
   return (
     <main className="sticky top-0 z-50">

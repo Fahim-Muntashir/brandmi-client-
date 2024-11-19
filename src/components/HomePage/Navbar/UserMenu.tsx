@@ -1,4 +1,3 @@
-"use client";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -11,21 +10,29 @@ import {
 import { LogOut } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-const UserMenu = () => {
-  const userName = false;
+import { auth } from "@/auth/authSetup";
+import React from "react";
+const UserMenu = async () => {
 
+  const session = await auth();
+  const user = session?.user;
+  const userInfo = {
+    name: user?.name,
+    email: user?.email,
+    profilePhoto: user?.image,
+  };
   return (
     <>
-      {userName ? (
+      {userInfo ? (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon">
               <Image
-                src=""
-                width={100}
-                height={100}
-                alt="user name"
-                className=" object-cover rounded-full h-12 w-122"
+                src={userInfo?.profilePhoto ?? ""}
+                width={200}
+                height={200}
+                alt={userInfo?.name ?? ""}
+                className="object-cover"
               />
               <span className="sr-only">Open user menu</span>
             </Button>
@@ -34,9 +41,9 @@ const UserMenu = () => {
           <DropdownMenuContent align="end">
             <DropdownMenuLabel className="font-normal">
               <div className="flex flex-col space-y-1">
-                <p className="text-sm font-medium leading-none">Demo user</p>
+                <p className="text-sm font-medium leading-none">{userInfo?.name}</p>
                 <p className="text-xs leading-none text-muted-foreground">
-                  demo@gmail.com
+                  {userInfo?.email}
                 </p>
               </div>
             </DropdownMenuLabel>
@@ -49,7 +56,7 @@ const UserMenu = () => {
               <DropdownMenuItem>Dashboard</DropdownMenuItem>
             </Link>
             <DropdownMenuItem>
-              <LogOut className="mr-2 h-4 w-4" />
+              <LogOut className="mr-2 bg-red-300 h-4 w-4" />
               <span>Log out</span>
             </DropdownMenuItem>
           </DropdownMenuContent>

@@ -11,9 +11,8 @@ const NavItems = () => {
         <Link
           key={item.label}
           href={item.href}
-          className={`text-[16px] font-semibold  hover:text-primary  ${
-            pathname === item.href ? "text-primary" : "text-muted-foreground"
-          }`}
+          className={`text-[18px] transition-all hover:text-primary  ${pathname === item.href ? "text-primary" : "text-muted-foreground"
+            }`}
         >
           {item.label}
         </Link>
