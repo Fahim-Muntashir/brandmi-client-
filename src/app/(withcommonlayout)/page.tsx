@@ -7,17 +7,17 @@ import BusinessSolution from "@/components/HomePage/BusinessSolution/BusinessSol
 import Members from "@/components/members/Members";
 
 const HomePage = () => {
-  return (
-    <>
-      <Navbar />
-      <Banner />
-      <Category />
-      <PopularServices />
-      <BusinessSolution />
-      <Members />
-      <Footer />
-    </>
-  );
+    return (
+        <>
+            <Navbar />
+            <Banner />
+            <Category />
+            <PopularServices />
+            <BusinessSolution />
+            <Members />
+            <Footer />
+        </>
+    );
 };
 
 export default HomePage;

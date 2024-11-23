@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import logo from "@/../src/assests/logomain.png";
-import logomain from "@/../src/assests/logo.png";
+import logomain from "@/../src/assests/logomain.png";
+import logo from "@/../src/assests/logo.png";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 const Logo = () => {
