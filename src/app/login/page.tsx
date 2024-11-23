@@ -29,7 +29,7 @@ const LoginForm: React.FC = () => {
   const router = useRouter();
   const handleSubmit = async (data: z.infer<typeof loginSchema>) => {
     try {
-      const res = await axiosInstance.post("/user/login", data);
+      const res = await axiosInstance.post("/auth/login", data);
       const result = res.data as ResponseOptions<any>;
       toast.message(result.message);
       router.push("/");

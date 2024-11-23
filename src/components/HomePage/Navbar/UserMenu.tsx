@@ -23,7 +23,7 @@ const UserMenu = () => {
   const { email, role, userName } = user || {};
   const handleLogout = async () => {
     try {
-      const res = await axiosInstance.get("/user/logout");
+      const res = await axiosInstance.get("/auth/logout");
       if (res.data) {
         router.refresh();
       }
