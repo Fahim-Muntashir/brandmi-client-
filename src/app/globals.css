@@ -10,6 +10,25 @@ body {
   --mqvym54: #fff;
 }
 
+/* Custom Scrollbar */
+.scrollbar-custom {
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: gray lightgray; /* Thumb and Track colors */
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Track color */
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: #888; /* Thumb color */
+  border-radius: 4px;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
