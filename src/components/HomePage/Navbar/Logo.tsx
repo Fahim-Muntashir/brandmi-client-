@@ -12,17 +12,8 @@ const Logo = () => {
   const isLogo = theme === "dark" ? logomain : logo;
 
   return (
-<<<<<<< HEAD
-    <Link href="/" className="flex items-center ">
-      {theme === "dark" ? (
-        <Image src={logo} width={150} height={200} alt="logo" />
-      ) : (
-        <Image src={logomain} width={150} height={200} alt="logo" />
-      )}
-=======
     <Link href="/" className="flex items-center" aria-label="Home">
       <Image src={isLogo} width={150} height={200} alt="logo" />
->>>>>>> 4518d2a32d65f45a3ecc166d95dbc284d53c59a3
     </Link>
   );
 };
