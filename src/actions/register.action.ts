@@ -1,9 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use server"
-
 import axiosInstance, { ErrorResponse, ResponseOptions } from "@/axios/axios"
 import { registerSchema } from "@/schemas/user.schema"
-import axios, { AxiosError } from "axios"
 import { z } from "zod"
 
 export const registerAction = async (value: z.infer<typeof registerSchema>) => {
@@ -12,16 +10,15 @@ export const registerAction = async (value: z.infer<typeof registerSchema>) => {
 
         const validate = registerSchema.safeParse(value)
         if (!validate.success) {
-            return { error: "Failed to validate data" }
+            return { message: "Failed to validate data" }
         }
         const response = await axiosInstance.post<ResponseOptions<any>>('/user/create-user', value)
         const result = response.data as ResponseOptions<any>
         return {
-            success: response.data.message
+            success: result.message
         }
     } catch (error) {
-
         const axiosError = error as ErrorResponse
-        return { error: axiosError.message }
+        return { message: axiosError.message }
     }
 }

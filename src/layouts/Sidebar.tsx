@@ -7,21 +7,24 @@ import { Menu } from "lucide-react";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { DialogTitle } from "@radix-ui/react-dialog";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/providers/AuthProvider";
+import { useRouter } from "next/navigation";
 
-interface SidebarProps {
-  userRole: string;
-}
-
-const Sidebar = ({ userRole }: SidebarProps) => {
+const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
+  const router = useRouter();
 
   const handleMobileMenu = () => {
     setMobileMenu(true);
   };
 
+  const { isAuth, user } = useAuth();
+
+  if (!isAuth) return router.push("/");
+  const { role } = user || {};
   let sidebarItems;
-  switch (userRole) {
+  switch (role) {
     case "admin":
       sidebarItems = <AdminSidebar collapsed={collapsed} />;
       break;
@@ -34,7 +37,7 @@ const Sidebar = ({ userRole }: SidebarProps) => {
     <div className="relative">
       <aside
         className={cn(
-          `fixed inset-y left-0 z-50 h-full   border-r transition-all duration-300 ease-in-out md:relative  lg:block hidden bg-gray-200 `,
+          `fixed inset-y left-0 z-50 h-full   border-r transition-all duration-300 ease-in-out md:relative  lg:block hidden  `,
           collapsed ? "w-16" : "w-48"
         )}
       >

@@ -7,6 +7,8 @@ import UseInput from "@/components/customForm/UseInput";
 import { UseForm } from "@/components/customForm/UseForm";
 import Link from "next/link";
 import { registerAction } from "@/actions/register.action";
+import { toast } from "sonner";
+import { useRouter } from "next/router";
 
 // Zod Schema for Validation
 const registerSchema = z
@@ -37,16 +39,17 @@ const RegisterForm: React.FC = () => {
   const [success, setSuccess] = useState<string | undefined>("");
   const [error, setError] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
+  const router = useRouter();
   const handleSubmit = (data: z.infer<typeof registerSchema>) => {
     const { confirmPassword, ...remainingData } = data;
     setSuccess("");
     setError("");
     startTransition(() => {
       registerAction(remainingData).then((data) => {
-        console.log("data", data);
-
-        setSuccess(data?.success);
-        setError(data?.error);
+        if (data.success) {
+          toast.success(data.message);
+          router.push("/");
+        }
       });
     });
   };

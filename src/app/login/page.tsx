@@ -31,7 +31,7 @@ const LoginForm: React.FC = () => {
     try {
       const res = await axiosInstance.post("/auth/login", data);
       const result = res.data as ResponseOptions<any>;
-      toast.message(result.message);
+      toast.success(result.message);
       router.push("/");
       router.refresh();
       //   window.location.href = "/";
