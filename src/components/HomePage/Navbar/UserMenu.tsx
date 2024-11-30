@@ -46,9 +46,7 @@ const UserMenu = () => {
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Profile</DropdownMenuItem>
-            <Link href={"/me"}>
-              <DropdownMenuItem>My Profile</DropdownMenuItem>
-            </Link>
+            <Link href={"/me"}></Link>
             <Link href={`dashboard/${role}`}>
               <DropdownMenuItem>Dashboard</DropdownMenuItem>
             </Link>

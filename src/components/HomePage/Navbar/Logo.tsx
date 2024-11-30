@@ -9,7 +9,7 @@ const Logo = () => {
 
   // Memoize the logo selection to prevent unnecessary re-renders
 
-  const isLogo = theme === "dark" ? logomain : logo;
+  const isLogo = theme === "dark" ? logo : logomain;
 
   return (
     <Link href="/" className="flex items-center" aria-label="Home">

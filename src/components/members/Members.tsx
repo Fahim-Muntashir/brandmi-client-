@@ -3,9 +3,11 @@ import Member from "./Member";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import member1 from "@/assests/member1.avif";
+import { useState } from "react";
 
 // replace with react data array:
-const memberData = Array.from({ length: 8 }, () => ({
+const memberData = Array.from({ length: 8 }, (_, index) => ({
+  id: index + 1, // Assign id starting from 1
   image: member1,
   name: "Emily Dubow",
   expert: "Design",
@@ -14,6 +16,8 @@ const memberData = Array.from({ length: 8 }, () => ({
 }));
 
 export default function Members() {
+  const [hoverId, setHoverId] = useState<number | null>(null);
+
   const responsive = {
     // Define responsive settings for different screen sizes
     desktop: {
@@ -48,7 +52,14 @@ export default function Members() {
         deviceType="desktop"
       >
         {memberData &&
-          memberData.map((member, index) => <Member {...member} key={index} />)}
+          memberData.map((member, index) => (
+            <Member
+              {...member}
+              key={index}
+              setHoverId={setHoverId}
+              hoverId={hoverId}
+            />
+          ))}
       </Carousel>
     </div>
   );

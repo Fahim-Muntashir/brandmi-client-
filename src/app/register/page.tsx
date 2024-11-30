@@ -8,7 +8,7 @@ import { UseForm } from "@/components/customForm/UseForm";
 import Link from "next/link";
 import { registerAction } from "@/actions/register.action";
 import { toast } from "sonner";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 // Zod Schema for Validation
 const registerSchema = z

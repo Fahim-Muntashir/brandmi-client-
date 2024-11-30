@@ -25,7 +25,7 @@ const Sidebar = () => {
   const { role } = user || {};
   let sidebarItems;
   switch (role) {
-    case "admin":
+    case "user":
       sidebarItems = <AdminSidebar collapsed={collapsed} />;
       break;
 
