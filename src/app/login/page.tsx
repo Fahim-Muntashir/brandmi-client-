@@ -9,32 +9,19 @@ import { toast } from "sonner";
 import axiosInstance, { ErrorResponse, ResponseOptions } from "@/axios/axios";
 import Google from "@/components/google/Google";
 import { useRouter } from "next/navigation";
-
-// Zod Schema for Validation
-const loginSchema = z.object({
-  email: z.string().email({ message: "Invalid email address" }),
-  password: z
-    .string()
-    .min(8, { message: "Password must be at least 8 characters" })
-    .regex(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-      {
-        message:
-          "Password must include uppercase, lowercase, number, and special character",
-      }
-    ),
-});
+import { loginSchema } from "@/schemas/login.schema";
 
 const LoginForm: React.FC = () => {
   const router = useRouter();
   const handleSubmit = async (data: z.infer<typeof loginSchema>) => {
     try {
+      const validation = loginSchema.safeParse(data);
+      if (!validation.success) toast.error("properly submit the input value");
       const res = await axiosInstance.post("/auth/login", data);
       const result = res.data as ResponseOptions<any>;
       toast.success(result.message);
       router.push("/");
       router.refresh();
-      //   window.location.href = "/";
     } catch (error) {
       const err = error as ErrorResponse;
       toast.error(err.message);

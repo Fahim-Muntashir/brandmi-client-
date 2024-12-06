@@ -48,7 +48,9 @@ const RegisterForm: React.FC = () => {
       registerAction(remainingData).then((data) => {
         if (data.success) {
           toast.success(data.message);
-          router.push("/");
+          router.push("/otp-varyfication");
+        } else {
+          toast.success(data.message);
         }
       });
     });

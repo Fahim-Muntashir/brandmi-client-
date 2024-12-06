@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use server"
 import axiosInstance, { ErrorResponse, ResponseOptions } from "@/axios/axios"
-import { registerSchema } from "@/schemas/user.schema"
+import { registerSchema } from "@/schemas/register.schema"
 import { z } from "zod"
 
 export const registerAction = async (value: z.infer<typeof registerSchema>) => {
@@ -15,7 +15,8 @@ export const registerAction = async (value: z.infer<typeof registerSchema>) => {
         const response = await axiosInstance.post<ResponseOptions<any>>('/user/create-user', value)
         const result = response.data as ResponseOptions<any>
         return {
-            success: result.message
+            success: result.success,
+            message: result.message
         }
     } catch (error) {
         const axiosError = error as ErrorResponse

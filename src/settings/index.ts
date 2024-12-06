@@ -2,7 +2,7 @@
 export const defaultLoginRedirect = "/"
 
 // public routes 
-export const publicRoutes = ["/"]
+export const publicRoutes = ["/", "/otp-varyfication"]
 
 // private routes (user,admin)
 export const privateRoutePrefix = "/dashboard"
