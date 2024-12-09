@@ -7,9 +7,9 @@ import { UseForm } from "@/components/customForm/UseForm";
 import Link from "next/link";
 import { toast } from "sonner";
 import axiosInstance, { ErrorResponse, ResponseOptions } from "@/axios/axios";
-import Google from "@/components/google/Google";
 import { useRouter } from "next/navigation";
 import { loginSchema } from "@/schemas/login.schema";
+import LoginWithGoogle from "@/components/googleAuth/LoginWithGoogle";
 
 const LoginForm: React.FC = () => {
   const router = useRouter();
@@ -54,7 +54,7 @@ const LoginForm: React.FC = () => {
           </Button>
         </UseForm>
         <div className="text-center mt-4">
-          <Google />
+          <LoginWithGoogle />
           <p className="text-sm text-gray-600">
             Don&apos;t have an account?
             <Link href="/register" className="text-blue-500 hover:underline">

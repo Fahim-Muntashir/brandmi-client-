@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
 
-const Google = () => {
+const RegisterWithGoogle = () => {
   const router = useRouter();
   console.log(
     "process.env.NEXT_PUBLIC_API_GOOGLE_UR,",
@@ -11,7 +11,7 @@ const Google = () => {
 
   const handleGoogleLogin = () => {
     const popup = window.open(
-      "http://localhost:8000/auth/google",
+      "http://localhost:8000/auth/google?mode=registration",
       "_blank",
       "width=500,height=600"
     );
@@ -47,4 +47,4 @@ const Google = () => {
   return <Button onClick={handleGoogleLogin}>Google</Button>;
 };
 
-export default Google;
+export default RegisterWithGoogle;
