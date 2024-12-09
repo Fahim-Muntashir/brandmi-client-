@@ -9,28 +9,16 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { LogOut } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import profileImage from "@/assests/profile.jpg";
 import { useAuth } from "@/providers/AuthProvider";
-import axiosInstance from "@/axios/axios";
-import { useRouter } from "next/navigation";
+import Logout from "./Logout";
 
 const UserMenu = () => {
   const { isAuth, user } = useAuth();
-  const router = useRouter();
   const { email, role, userName } = user || {};
-  const handleLogout = async () => {
-    try {
-      const res = await axiosInstance.get("/user/logout");
-      if (res.data) {
-        router.refresh();
-      }
-    } catch (error) {
-      console.log("logout problem", error);
-    }
-  };
+
   return (
     <>
       {isAuth ? (
@@ -57,17 +45,13 @@ const UserMenu = () => {
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Profile</DropdownMenuItem>
             <Link href={"/me"}>
-              <DropdownMenuItem>My Profile</DropdownMenuItem>
+              <DropdownMenuItem>Profile</DropdownMenuItem>
             </Link>
             <Link href={`dashboard/${role}`}>
               <DropdownMenuItem>Dashboard</DropdownMenuItem>
             </Link>
-            <DropdownMenuItem onClick={handleLogout}>
-              <LogOut className="mr-2 h-4 w-4" />
-              <span>Log out</span>
-            </DropdownMenuItem>
+            <Logout />
           </DropdownMenuContent>
         </DropdownMenu>
       ) : (

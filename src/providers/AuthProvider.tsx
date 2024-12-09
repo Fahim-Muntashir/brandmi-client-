@@ -1,12 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-// src/contexts/AuthContext.tsx
 "use client";
-
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext } from "react";
 import jwt from "jsonwebtoken";
 import { IUser } from "@/responseType/response.type";
 
-// Define the shape of the AuthContext
+// return value :
 interface AuthContextType {
   isAuth: boolean;
   user: IUser | null;
@@ -19,16 +16,18 @@ const AuthContext = createContext<AuthContextType>({
 });
 
 // AuthProvider component
-export const AuthProvider: React.FC<{
+
+type AuthProviderProps = {
   children: React.ReactNode;
-  initialToken?: string | null;
-}> = ({ children, initialToken }) => {
+  initialToken: string | null;
+};
+export const AuthProvider = ({ children, initialToken }: AuthProviderProps) => {
   // Decode the token and set auth state
   const decodedUser = initialToken ? (jwt.decode(initialToken) as IUser) : null;
   const isAuth = !!decodedUser;
 
   // Context value
-  const contextValue = {
+  const contextValue: AuthContextType = {
     isAuth,
     user: decodedUser,
   };
@@ -41,6 +40,5 @@ export const AuthProvider: React.FC<{
 // Custom hook to use the auth context
 export const useAuth = () => {
   const context = useContext(AuthContext);
-
   return context;
 };

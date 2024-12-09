@@ -6,12 +6,9 @@ import UserMenu from "./UserMenu";
 
 export const navItems = [
   { href: "/", label: "Home" },
-  { href: "/profile", label: "Profile" },
-  { href: "/settings", label: "Settings" },
-  { href: "/dashboard", label: "dashboard" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
-
-
 
 export default function Navbar() {
   return (

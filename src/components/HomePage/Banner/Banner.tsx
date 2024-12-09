@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import bannerimg from '@/../src/assests/home.png'
+import bannerimg from "@/../src/assests/home.png";
 import Image from "next/image";
 
 export default function Banner() {

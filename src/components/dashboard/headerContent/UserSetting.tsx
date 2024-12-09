@@ -1,3 +1,4 @@
+"use client";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,6 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import profile from "@/assests/profile.jpg";
 import Image from "next/image";
+import Logout from "@/components/HomePage/Navbar/Logout";
 
 const UserSetting = () => {
   return (
@@ -27,7 +29,7 @@ const UserSetting = () => {
         <DropdownMenuSeparator />
         <DropdownMenuItem>Profile</DropdownMenuItem>
         <DropdownMenuItem>Settings</DropdownMenuItem>
-        <DropdownMenuItem>Logout</DropdownMenuItem>
+        <Logout />
       </DropdownMenuContent>
     </DropdownMenu>
   );
