@@ -17,7 +17,7 @@ import Logout from "./Logout";
 
 const UserMenu = () => {
   const { isAuth, user } = useAuth();
-  const { email, role, userName } = user || {};
+  const { email, role, userName, image } = user || {};
 
   return (
     <>
@@ -26,7 +26,7 @@ const UserMenu = () => {
           <DropdownMenuTrigger asChild>
             <div className="h-10 w-10 relative cursor-pointer transition-transform duration-200 hover:scale-105 rounded-full shadow-lg">
               <Image
-                src={profileImage}
+                src={image ? image : profileImage}
                 fill
                 alt="user name"
                 className="rounded-full "
