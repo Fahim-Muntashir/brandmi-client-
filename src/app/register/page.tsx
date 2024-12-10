@@ -51,7 +51,7 @@ const RegisterForm: React.FC = () => {
           toast.success(data.message);
           router.push("/otp-varyfication");
         } else {
-          toast.success(data.message);
+          toast.error(data.message);
         }
       });
     });

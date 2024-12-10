@@ -41,7 +41,7 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Toaster richColors />
+          <Toaster richColors position="top-center" />
           <AuthProvider initialToken={token}>{children}</AuthProvider>
         </ThemeProvider>
       </body>
