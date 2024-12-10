@@ -56,8 +56,11 @@ const OptVerification = () => {
         otpCode: otpCodeNumber,
       });
       const result = res.data as ResponseOptions<null>;
-      toast.success(result.message);
-      if (result.success) router.push("/login");
+
+      if (result.success) {
+        toast.success(result.message);
+        router.push("/login");
+      }
     } catch (error) {
       const errRes = error as ErrorResponse;
       toast.error(errRes.message);

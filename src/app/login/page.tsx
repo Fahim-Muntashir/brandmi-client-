@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import axiosInstance, { ErrorResponse, ResponseOptions } from "@/axios/axios";
 import { useRouter } from "next/navigation";
 import { loginSchema } from "@/schemas/login.schema";
-import LoginWithGoogle from "@/components/googleAuth/LoginWithGoogle";
+import LoginWithGoogle from "@/components/auth/googleAuth/LoginWithGoogle";
 
 const LoginForm: React.FC = () => {
   const router = useRouter();

@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRouter } from "next/navigation";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
+import { UserRole } from "../RoleSelector";
 
-const LoginWithGoogle = () => {
+const RegisterWithGoogle = ({ selectedRole }: { selectedRole: UserRole }) => {
   const router = useRouter();
   console.log(
     "process.env.NEXT_PUBLIC_API_GOOGLE_UR,",
@@ -11,7 +12,7 @@ const LoginWithGoogle = () => {
 
   const handleGoogleLogin = () => {
     const popup = window.open(
-      "http://localhost:8000/auth/google?mode=login",
+      `http://localhost:8000/auth/google?mode=registration&role=${selectedRole}`,
       "_blank",
       "width=500,height=600"
     );
@@ -44,7 +45,11 @@ const LoginWithGoogle = () => {
     }, 500);
   };
 
-  return <Button onClick={handleGoogleLogin}>Google</Button>;
+  return (
+    <Button disabled={!selectedRole} onClick={handleGoogleLogin}>
+      Google
+    </Button>
+  );
 };
 
-export default LoginWithGoogle;
+export default RegisterWithGoogle;

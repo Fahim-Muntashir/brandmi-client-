@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRouter } from "next/navigation";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 
-const RegisterWithGoogle = () => {
+const LoginWithGoogle = () => {
   const router = useRouter();
   console.log(
     "process.env.NEXT_PUBLIC_API_GOOGLE_UR,",
@@ -11,7 +11,7 @@ const RegisterWithGoogle = () => {
 
   const handleGoogleLogin = () => {
     const popup = window.open(
-      "http://localhost:8000/auth/google?mode=registration",
+      "http://localhost:8000/auth/google?mode=login",
       "_blank",
       "width=500,height=600"
     );
@@ -47,4 +47,4 @@ const RegisterWithGoogle = () => {
   return <Button onClick={handleGoogleLogin}>Google</Button>;
 };
 
-export default RegisterWithGoogle;
+export default LoginWithGoogle;
