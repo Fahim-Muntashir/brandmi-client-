@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import React, { useState, useTransition } from "react";
@@ -9,6 +10,12 @@ import Link from "next/link";
 import { registerAction } from "@/actions/register.action";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import RegisterWithGoogle from "@/components/auth/googleAuth/RegisterWithGoogle";
+import axiosInstance, { ErrorResponse, ResponseOptions } from "@/axios/axios";
+import RoleSelector, {
+  RoleSelectorProps,
+  UserRole,
+} from "@/components/auth/RoleSelector";
 
 // Zod Schema for Validation
 const registerSchema = z
@@ -35,25 +42,30 @@ const registerSchema = z
     path: ["confirmPassword"],
   });
 
-const RegisterForm: React.FC = () => {
-  const [success, setSuccess] = useState<string | undefined>("");
-  const [error, setError] = useState<string | undefined>("");
-  const [isPending, startTransition] = useTransition();
+const RegisterForm = () => {
+  const [loading, setIsLoading] = useState(false);
+  const [selectedRole, onRoleSelect] = useState<UserRole>("");
   const router = useRouter();
-  const handleSubmit = (data: z.infer<typeof registerSchema>) => {
-    const { confirmPassword, ...remainingData } = data;
-    setSuccess("");
-    setError("");
-    startTransition(() => {
-      registerAction(remainingData).then((data) => {
-        if (data.success) {
-          toast.success(data.message);
-          router.push("/otp-varyfication");
-        } else {
-          toast.success(data.message);
-        }
+  const handleSubmit = async (data: z.infer<typeof registerSchema>) => {
+    try {
+      setIsLoading(true);
+      const validation = registerSchema.safeParse(data);
+      if (!validation.success) toast.error("properly submit the input value");
+
+      const { confirmPassword, ...remainingData } = data;
+      const res = await axiosInstance.post("/user/create-user", {
+        ...remainingData,
+        role: selectedRole,
       });
-    });
+      const result = res.data as ResponseOptions<any>;
+      if (result.success) {
+        router.push("/otp-varyfication");
+      }
+    } catch (error) {
+      const err = error as ErrorResponse;
+      toast.error(err.message);
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -61,6 +73,7 @@ const RegisterForm: React.FC = () => {
       <h2 className="text-2xl font-bold mb-6 text-center">
         Create Your Account
       </h2>
+      <RoleSelector selectedRole={selectedRole} onRoleSelect={onRoleSelect} />
       <UseForm
         onSubmit={handleSubmit}
         schema={registerSchema}
@@ -83,12 +96,17 @@ const RegisterForm: React.FC = () => {
           label="Confirm Password"
           placeholder="********"
         />
-        <p>{success}</p>
-        <p>{error}</p>
-        <Button type="submit" className="w-full" disabled={isPending}>
+        <Button
+          type="submit"
+          className="w-full"
+          disabled={!selectedRole || loading}
+        >
           Register
         </Button>
       </UseForm>
+      <div className="flex justify-center pt-2">
+        <RegisterWithGoogle selectedRole={selectedRole} />
+      </div>
       <div className="text-center mt-4">
         <p className="text-sm text-gray-600">
           Already have an account?{" "}
