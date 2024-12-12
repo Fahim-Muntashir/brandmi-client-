@@ -2,16 +2,20 @@
 "use client";
 
 import axiosInstance, { ErrorResponse, ResponseOptions } from "@/axios/axios";
+import { useAuth } from "@/providers/AuthProvider";
 import oneTap from "google-one-tap";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 const GoogleOneTapLogin = () => {
   const router = useRouter();
+
+  const user = useAuth();
+  if (user.isAuth) return;
   const options = {
     client_id:
       "492292213341-5q9df94gqjorrbeo8dhf8rbmql0la9u2.apps.googleusercontent.com",
-    auto_select: true,
+    auto_select: false,
 
     callback: async (response: { credential: string }) => {
       console.log("response", response);
