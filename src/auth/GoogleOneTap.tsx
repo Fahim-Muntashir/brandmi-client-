@@ -11,6 +11,7 @@ const GoogleOneTapLogin = () => {
   const router = useRouter();
 
   const user = useAuth();
+
   if (user.isAuth) return;
   const options = {
     client_id:
@@ -46,7 +47,7 @@ const GoogleOneTapLogin = () => {
 
   // Initialize Google One Tap
 
-  oneTap(options);
+  (oneTap as any)(options);
   return null; // No UI component is needed for One Tap
 };
 
