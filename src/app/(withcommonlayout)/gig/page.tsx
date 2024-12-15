@@ -1,8 +1,8 @@
 import GigDescription from "@/components/gigs/GigDescription";
+import GigImagesSlider from "@/components/gigs/GigImagesSlider";
 import GigPackages from "@/components/gigs/GigPackages";
 import SellerProfile from "@/components/gigs/SellerProfile";
 import { demoGig } from "@/lib/demoData";
-import Image from "next/image";
 
 const GigPage = () => {
   return (
@@ -16,15 +16,8 @@ const GigPage = () => {
             {/* seller profile component */}
             <SellerProfile seller={demoGig.seller} />
             {/* service image */}
-
-            <div className="mb-8">
-              <Image
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=800&fit=crop"
-                alt="Gig preview"
-                height={500}
-                width={500}
-                className="w-full  rounded-lg object-cover "
-              />
+            <div className="mb-8 ">
+              <GigImagesSlider />
             </div>
             {/* gig description  component */}
             <GigDescription />

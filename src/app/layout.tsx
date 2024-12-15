@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/providers/ThemePorvider";
 import { Toaster } from "sonner";
 import { cookies } from "next/headers";
 import { AuthProvider } from "@/providers/AuthProvider";
+import GoogleOneTapLogin from "@/auth/GoogleOneTap";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -41,6 +42,7 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          {!token && <GoogleOneTapLogin />}
           <Toaster richColors position="top-center" />
           <AuthProvider initialToken={token}>{children}</AuthProvider>
         </ThemeProvider>

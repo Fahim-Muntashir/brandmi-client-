@@ -11,6 +11,7 @@ const GoogleOneTapLogin = () => {
   const router = useRouter();
 
   const user = useAuth();
+  console.log(user.isAuth);
 
   if (user.isAuth) return;
   const options = {
