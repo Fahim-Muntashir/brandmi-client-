@@ -11,7 +11,7 @@ const LoginWithGoogle = () => {
 
   const handleGoogleLogin = () => {
     const popup = window.open(
-      "http://localhost:8000/auth/google?mode=login",
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/google?mode=login`,
       "_blank",
       "width=500,height=600"
     );
