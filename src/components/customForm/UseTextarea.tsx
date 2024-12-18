@@ -6,9 +6,9 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { useFormContext } from "react-hook-form";
+import { Textarea } from "../ui/textarea";
 
 interface InputProps {
   name: string;
@@ -16,14 +16,15 @@ interface InputProps {
   label: string;
   type?: string;
   labelCenter?: boolean;
+  row?: number;
 }
 
-const UseInput = ({
+const UseTextarea = ({
   name,
   placeholder,
   label,
-  type = "text",
   labelCenter,
+  row = 2,
 }: InputProps) => {
   const formContext = useFormContext();
   return (
@@ -41,10 +42,9 @@ const UseInput = ({
             {label}
           </FormLabel>
           <FormControl>
-            <Input
-              className="h-9"
+            <Textarea
+              rows={row}
               placeholder={placeholder}
-              type={type}
               value={field.value ?? ""} // Use nullish coalescing
               onChange={(e) => field.onChange(e.target.value)}
             />
@@ -55,4 +55,4 @@ const UseInput = ({
     />
   );
 };
-export default UseInput;
+export default UseTextarea;

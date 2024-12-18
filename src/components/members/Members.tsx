@@ -3,7 +3,6 @@ import Member from "./Member";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import member1 from "@/assests/member1.avif";
-import { useState } from "react";
 
 // replace with react data array:
 const memberData = Array.from({ length: 8 }, (_, index) => ({
@@ -16,7 +15,7 @@ const memberData = Array.from({ length: 8 }, (_, index) => ({
 }));
 
 export default function Members() {
-  const [hoverId, setHoverId] = useState<number | null>(null);
+  //   const [hoverId, setHoverId] = useState<number | null>(null);
 
   const responsive = {
     // Define responsive settings for different screen sizes
@@ -56,8 +55,8 @@ export default function Members() {
             <Member
               {...member}
               key={index}
-              setHoverId={setHoverId}
-              hoverId={hoverId}
+              //   setHoverId={setHoverId}
+              //   hoverId={hoverId}
             />
           ))}
       </Carousel>

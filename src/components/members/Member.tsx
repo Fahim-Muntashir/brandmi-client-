@@ -10,8 +10,8 @@ interface memberProps {
   expert: string;
   jobTitle: string;
   previousWorkPlace: string;
-  hoverId: number | null;
-  setHoverId: React.Dispatch<React.SetStateAction<number | null>>;
+  //   hoverId: number | null;
+  //   setHoverId: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
 export default function Member({
@@ -20,15 +20,13 @@ export default function Member({
   jobTitle,
   name,
   previousWorkPlace,
-  id,
-  hoverId,
-  setHoverId,
-}: memberProps) {
+}: //   id,
+memberProps) {
   return (
     <Card
       className="overflow-hidden px-0 py-0 pb-2 relative transition-transform duration-300 ease-in-out hover:scale-105"
-      onMouseEnter={() => setHoverId(id)} // Set the hoverId to the current card id when hovered
-      onMouseLeave={() => setHoverId(null)} // Reset hoverId when mouse leaves
+      //   onMouseEnter={() => setHoverId(id)} // Set the hoverId to the current card id when hovered
+      //   onMouseLeave={() => setHoverId(null)} // Reset hoverId when mouse leaves
     >
       <CardContent className="px-0 py-0 flex flex-col items-start gap-3 ">
         {/* Image part */}
@@ -66,11 +64,11 @@ export default function Member({
         </div>
       </CardContent>
       {/* Apply black background with opacity to all cards except the focused one */}
-      <div
+      {/* <div
         className={`absolute inset-0 bg-black transition-opacity duration-300 ease-in-out ${
           hoverId !== null && hoverId !== id ? "opacity-50" : "opacity-0"
         }`}
-      ></div>
+      ></div> */}
     </Card>
   );
 }

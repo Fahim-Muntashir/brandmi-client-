@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { DefaultValues, useForm } from "react-hook-form";
 import React from "react";
@@ -8,7 +9,7 @@ import { ZodType } from "zod";
 interface FormProps<T extends ZodType> {
   onSubmit: (data: T["_output"]) => void;
   children: React.ReactNode;
-  schema: T;
+  schema?: T;
   defaultValues?: DefaultValues<T["_output"]>;
 }
 
@@ -18,9 +19,15 @@ export function UseForm<T extends ZodType>({
   schema,
   defaultValues,
 }: FormProps<T>) {
+  const customForm: Record<string, any> = {};
+  if (schema) {
+    customForm["resolver"] = zodResolver(schema);
+  }
+  if (defaultValues) {
+    customForm["defaultValues"] = defaultValues;
+  }
   const form = useForm({
-    resolver: zodResolver(schema),
-    defaultValues: defaultValues,
+    ...customForm,
   });
 
   return (
