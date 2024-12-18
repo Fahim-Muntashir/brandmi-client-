@@ -31,7 +31,7 @@ const PublishGig = () => {
 
   return (
     <main className="container mx-auto flex items-center justify-center px-4 py-8 mb-36">
-      <Card className="p-6 lg:min-w-[600px] overflow-hidden">
+      <Card className="p-6 w-full lg:w-auto lg:min-w-[600px]">
         {/* Gig form processing header */}
         <GigFormProcessing progress={getProgress()} currentTab={currentTab} />
 
