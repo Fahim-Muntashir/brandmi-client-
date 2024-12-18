@@ -5,12 +5,14 @@ import { gigFormState } from "@/globalStore/gigFormState";
 import UseTextarea from "@/components/customForm/UseTextarea";
 import FAQSection from "./FAQSection";
 import { gigDescriptionSchema } from "@/schemas/gig.schema";
+import Requirements from "./Requirements";
+import { z } from "zod";
 
 const GigDescriptionForm = () => {
   const { currentTab, setCurrentTab, formData, updateFormData } =
     gigFormState();
 
-  const handleSubmit = (data: any) => {
+  const handleSubmit = (data: z.infer<typeof gigDescriptionSchema>) => {
     console.log("gig description data", data);
 
     updateFormData("description", data);
@@ -30,6 +32,7 @@ const GigDescriptionForm = () => {
         row={5}
       />
       <FAQSection />
+      <Requirements />
       <GigButtons currentTab={currentTab} setCurrentTab={setCurrentTab} />
     </UseForm>
   );

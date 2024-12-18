@@ -13,16 +13,17 @@ interface FAQ {
 
 const FAQSection = () => {
   const { formData } = gigFormState();
-  const faqs: FAQ[] = formData.description.faqs;
+  const faqs: FAQ[] = JSON.parse(JSON.stringify(formData.description.faqs)); // Deep copy to avoid reference issues.
   const [questions, setQuestion] = useState<FAQ[]>([...faqs]);
+
   const addFAQ = () => {
     setQuestion((prev) => [...prev, { question: "", answer: "" }]);
   };
 
-  //   remove faq from question array:
   const removeFaq = (index: number) => {
-    const filterFaq = questions.filter((_, i) => i !== index);
-    setQuestion(() => [...filterFaq]);
+    // Create a new array by filtering out the FAQ at the specified index.
+    const updatedFaqs = questions.filter((_, i) => i !== index);
+    setQuestion(updatedFaqs); // Update state with a fresh array reference.
   };
 
   return (
@@ -34,26 +35,28 @@ const FAQSection = () => {
         </Button>
       </div>
       <div>
-        {questions.map((item, index) => {
-          return (
-            <div key={index} className="flex items-start gap-4">
-              <div className="flex-1">
-                <UseInput
-                  name={`faqs.${index}.question`}
-                  type="text"
-                  label="Question"
-                />
-                <UseTextarea name={`faqs.${index}.answer`} label="Answer" />
-              </div>
-
-              <Button onClick={() => removeFaq(index)} size={"icon"}>
-                <X className="" />
-              </Button>
+        {questions.map((item, index) => (
+          <div key={index} className="flex items-start gap-4">
+            <div className="flex-1">
+              <UseInput
+                name={`faqs.${index}.question`}
+                type="text"
+                label="Question"
+              />
+              <UseTextarea name={`faqs.${index}.answer`} label="Answer" />
             </div>
-          );
-        })}
+            <Button
+              onClick={() => removeFaq(index)}
+              size={"icon"}
+              type="button"
+            >
+              <X className="" />
+            </Button>
+          </div>
+        ))}
       </div>
     </div>
   );
 };
+
 export default FAQSection;
