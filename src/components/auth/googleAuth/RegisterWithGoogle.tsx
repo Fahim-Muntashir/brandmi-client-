@@ -9,7 +9,7 @@ const RegisterWithGoogle = ({ selectedRole }: { selectedRole: UserRole }) => {
 
   const handleGoogleLogin = () => {
     const popup = window.open(
-      `http://localhost:8000/auth/google?mode=registration&role=${selectedRole}`,
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/google?mode=registration&role=${selectedRole}`,
       "_blank",
       "width=500,height=600"
     );
