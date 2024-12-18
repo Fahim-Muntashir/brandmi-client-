@@ -11,18 +11,15 @@ const GigPricingForm = () => {
     gigFormState();
   const handleFormSubmit = (data: any) => {
     console.log("pricing data", data);
-    console.log(formData.pricing);
 
-    if (gigPricingSchema.safeParse(data)) {
-      updateFormData("pricing", data);
-      setCurrentTab("description");
-    }
+    updateFormData("pricing", data);
+    setCurrentTab("description");
   };
 
   return (
     <UseForm
       onSubmit={handleFormSubmit}
-      defaultValues={formData}
+      defaultValues={formData.pricing}
       schema={gigPricingSchema}
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -78,7 +78,18 @@ export const gigPricingSchema = z.object({
 
 
 
-export const gigTabSchemaThree = z.object({
-    tab3: z.string()
+export const gigDescriptionSchema = z.object({
+    description: z.string(),
+    faqs: z.array(
+        z.object({
+            question: z.string(),
+            answer: z.string(),
+        })
+    ),
+    requirements: z.array(z.string()),
+});
 
+
+export const gigGallerySchema = z.object({
+    images: z.array(z.string()).min(1),
 })

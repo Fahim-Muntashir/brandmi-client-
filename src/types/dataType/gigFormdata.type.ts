@@ -8,28 +8,30 @@ export interface GigFormData {
         searchTags: string[];
     };
     pricing: {
-        basicPackage: {
-            name: string;
-            description: string;
-            price: number;
-            deliveryTime: number;
-            revisions: number;
+        pricing: {
+            basicPackage: {
+                name: string;
+                description: string;
+                price: number;
+                deliveryTime: number;
+                revisions: number;
+            };
+            standardPackage: {
+                name: string;
+                description: string;
+                price: number;
+                deliveryTime: number;
+                revisions: number;
+            };
+            premiumPackage: {
+                name: string;
+                description: string;
+                price: number;
+                deliveryTime: number;
+                revisions: number;
+            };
         };
-        standardPackage: {
-            name: string;
-            description: string;
-            price: number;
-            deliveryTime: number;
-            revisions: number;
-        };
-        premiumPackage: {
-            name: string;
-            description: string;
-            price: number;
-            deliveryTime: number;
-            revisions: number;
-        };
-    };
+    },
 
     description: {
         description: string;

@@ -4,10 +4,12 @@ import { UseForm } from "@/components/customForm/UseForm";
 import { gigFormState } from "@/globalStore/gigFormState";
 import UseTextarea from "@/components/customForm/UseTextarea";
 import FAQSection from "./FAQSection";
+import { gigDescriptionSchema } from "@/schemas/gig.schema";
 
 const GigDescriptionForm = () => {
   const { currentTab, setCurrentTab, formData, updateFormData } =
     gigFormState();
+
   const handleSubmit = (data: any) => {
     console.log("gig description data", data);
 
@@ -16,7 +18,11 @@ const GigDescriptionForm = () => {
   };
 
   return (
-    <UseForm onSubmit={handleSubmit} defaultValues={formData.description}>
+    <UseForm
+      onSubmit={handleSubmit}
+      defaultValues={formData.description}
+      schema={gigDescriptionSchema}
+    >
       <UseTextarea
         name="description"
         label="Description"

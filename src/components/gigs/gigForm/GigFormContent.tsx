@@ -6,13 +6,6 @@ import GigOverviewForm from "./GIgOverviewForm";
 import GigDescriptionForm from "./GigDescriptionForm";
 import GigGalleryForm from "./GigGalleryForm";
 
-// interface GigFormContentProps {
-//   currentTab: TabType;
-//   setCurrentTab: (tab: TabType) => void;
-//   formData: GigFormData;
-//   updateFormData: (tab: keyof GigFormData, data: any) => void;
-// }
-
 export const GigFormContent = () => {
   return (
     <div className="mg:mt-6 mt-12">

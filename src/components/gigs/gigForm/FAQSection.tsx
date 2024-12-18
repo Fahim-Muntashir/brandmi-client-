@@ -3,7 +3,7 @@ import UseTextarea from "@/components/customForm/UseTextarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { gigFormState } from "@/globalStore/gigFormState";
-import { Plus } from "lucide-react";
+import { Plus, X } from "lucide-react";
 import { useState } from "react";
 
 interface FAQ {
@@ -19,8 +19,14 @@ const FAQSection = () => {
     setQuestion((prev) => [...prev, { question: "", answer: "" }]);
   };
 
+  //   remove faq from question array:
+  const removeFaq = (index: number) => {
+    const filterFaq = questions.filter((_, i) => i !== index);
+    setQuestion(() => [...filterFaq]);
+  };
+
   return (
-    <div>
+    <div className="space-y-5">
       <div className="flex justify-between items-center">
         <Label>FAQs</Label>
         <Button type="button" variant="outline" size="sm" onClick={addFAQ}>
@@ -30,13 +36,19 @@ const FAQSection = () => {
       <div>
         {questions.map((item, index) => {
           return (
-            <div key={index}>
-              <UseInput
-                name={`faqs.${index}.question`}
-                type="text"
-                label="Question"
-              />
-              <UseTextarea name={`faqs.${index}.answer`} label="Answer" />
+            <div key={index} className="flex items-start gap-4">
+              <div className="flex-1">
+                <UseInput
+                  name={`faqs.${index}.question`}
+                  type="text"
+                  label="Question"
+                />
+                <UseTextarea name={`faqs.${index}.answer`} label="Answer" />
+              </div>
+
+              <Button onClick={() => removeFaq(index)} size={"icon"}>
+                <X className="" />
+              </Button>
             </div>
           );
         })}

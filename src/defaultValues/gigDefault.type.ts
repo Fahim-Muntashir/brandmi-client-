@@ -8,26 +8,28 @@ export const demoGigData = {
         searchTags: ["website", "development", "react js", "responsive"],
     },
     pricing: {
-        basicPackage: {
-            name: "Basic Website",
-            description: "Simple landing page with up to 3 sections",
-            price: 99,
-            deliveryTime: 3,
-            revisions: 1,
-        },
-        standardPackage: {
-            name: "Standard Website",
-            description: "Multi-page website with up to 5 pages",
-            price: 199,
-            deliveryTime: 5,
-            revisions: 2,
-        },
-        premiumPackage: {
-            name: "Premium Website",
-            description: "Full website with custom features and animations",
-            price: 399,
-            deliveryTime: 7,
-            revisions: 3,
+        pricing: {
+            basicPackage: {
+                name: "Basic Website",
+                description: "Simple landing page with up to 3 sections",
+                price: 99,
+                deliveryTime: 3,
+                revisions: 1,
+            },
+            standardPackage: {
+                name: "Standard Website",
+                description: "Multi-page website with up to 5 pages",
+                price: 199,
+                deliveryTime: 5,
+                revisions: 2,
+            },
+            premiumPackage: {
+                name: "Premium Website",
+                description: "Full website with custom features and animations",
+                price: 399,
+                deliveryTime: 7,
+                revisions: 3,
+            },
         },
     },
 
