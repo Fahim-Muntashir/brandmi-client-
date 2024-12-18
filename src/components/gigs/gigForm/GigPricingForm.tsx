@@ -25,7 +25,7 @@ const GigPricingForm = () => {
       defaultValues={formData}
       schema={gigPricingSchema}
     >
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <PackageFormCard
           prefix={gigPricingNamePrefix.BASIC_PRICE}
           title="Basic Package"

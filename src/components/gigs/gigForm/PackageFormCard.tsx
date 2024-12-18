@@ -33,7 +33,7 @@ const PackageFormCard = ({ title, prefix }: PackageCardProps) => {
           />
           <UseInput
             name={`${prefix}.${gigPricingName.DELIVERY_TIME}`}
-            label="Delivery (days)"
+            label="Delivery"
             type="number"
             labelCenter={true}
           />

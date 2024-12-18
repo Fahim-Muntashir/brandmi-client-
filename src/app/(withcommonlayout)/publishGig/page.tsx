@@ -18,7 +18,7 @@ const PublishGig = () => {
   }, [currentTab]);
   return (
     <main className=" container mx-auto flex items-center justify-center px-4 py-8 mb-36">
-      <Card className="p-6 min-w-[600px]">
+      <Card className="p-6  lg:min-w-[600px]  overflow-hidden">
         {/* gig form processing header */}
         <GigFormProcessing progress={getProgress()} currentTab={currentTab} />
         {/* tabs */}

@@ -15,7 +15,7 @@ import GigGalleryForm from "./GigGalleryForm";
 
 export const GigFormContent = () => {
   return (
-    <div className="mt-6">
+    <div className="mg:mt-6 mt-12">
       <TabsContent value="overview">
         <GigOverviewForm />
       </TabsContent>

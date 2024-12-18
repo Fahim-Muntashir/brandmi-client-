@@ -6,7 +6,7 @@ interface GigFormTabsProps {
 }
 const GIgFormTabs = ({ currentTab, onTabChange }: GigFormTabsProps) => {
   return (
-    <TabsList className="grid  grid-cols-4 mb-8 gap-3">
+    <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 gap-2 ">
       <TabsTrigger
         value={currentTab}
         disabled={currentTab !== "overview"}
