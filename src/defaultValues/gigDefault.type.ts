@@ -54,8 +54,8 @@ export const demoGigData = {
 
     gallery: {
         images: [
-            "https://images.unsplash.com/photo-1517292987719-0369a794ec0f",
-            "https://images.unsplash.com/photo-1522542550221-31fd19575a2d",
+            // "https://images.unsplash.com/photo-1517292987719-0369a794ec0f",
+            // "https://images.unsplash.com/photo-1522542550221-31fd19575a2d",
         ],
     },
 };

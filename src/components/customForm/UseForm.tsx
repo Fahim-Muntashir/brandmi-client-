@@ -11,6 +11,7 @@ interface FormProps<T extends ZodType> {
   children: React.ReactNode;
   schema?: T;
   defaultValues?: DefaultValues<T["_output"]>;
+  onWatch?: (watch: any) => void;
 }
 
 export function UseForm<T extends ZodType>({
@@ -18,6 +19,7 @@ export function UseForm<T extends ZodType>({
   children,
   schema,
   defaultValues,
+  onWatch,
 }: FormProps<T>) {
   const customForm: Record<string, any> = {};
   if (schema) {
@@ -29,7 +31,10 @@ export function UseForm<T extends ZodType>({
   const form = useForm({
     ...customForm,
   });
-
+  const watch = form.watch;
+  if (onWatch) {
+    onWatch(watch);
+  }
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

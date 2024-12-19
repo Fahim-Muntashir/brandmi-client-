@@ -13,16 +13,17 @@ interface FAQ {
 
 const FAQSection = () => {
   const { formData } = gigFormState();
-  const faqs: FAQ[] = formData.description.faqs;
+  const faqs: FAQ[] = JSON.parse(JSON.stringify(formData.description.faqs)); // Deep copy to avoid reference issues.
   const [questions, setQuestion] = useState<FAQ[]>([...faqs]);
+
   const addFAQ = () => {
     setQuestion((prev) => [...prev, { question: "", answer: "" }]);
   };
 
-  //   remove faq from question array:
   const removeFaq = (index: number) => {
-    const filterFaq = questions.filter((_, i) => i !== index);
-    setQuestion(() => [...filterFaq]);
+    // Create a new array by filtering out the FAQ at the specified index.
+    const updatedFaqs = questions.filter((_, i) => i !== index);
+    setQuestion(updatedFaqs); // Update state with a fresh array reference.
   };
 
   return (
@@ -33,27 +34,31 @@ const FAQSection = () => {
           <Plus className="h-4 w-4 mr-2" /> Add FAQ
         </Button>
       </div>
-      <div>
-        {questions.map((item, index) => {
-          return (
-            <div key={index} className="flex items-start gap-4">
-              <div className="flex-1">
-                <UseInput
-                  name={`faqs.${index}.question`}
-                  type="text"
-                  label="Question"
-                />
-                <UseTextarea name={`faqs.${index}.answer`} label="Answer" />
-              </div>
-
-              <Button onClick={() => removeFaq(index)} size={"icon"}>
-                <X className="" />
-              </Button>
+      <div className="space-y-5">
+        {questions.map((item, index) => (
+          <div key={index} className="flex items-start gap-4">
+            <div className="flex-1 space-y-4">
+              <UseInput
+                name={`faqs.${index}.question`}
+                type="text"
+                label="Question"
+              />
+              <UseTextarea name={`faqs.${index}.answer`} label="Answer" />
             </div>
-          );
-        })}
+            <Button
+              onClick={() => removeFaq(index)}
+              size={"sm"}
+              type="button"
+              variant={"destructive"}
+              className="h-5 w-4"
+            >
+              <X />
+            </Button>
+          </div>
+        ))}
       </div>
     </div>
   );
 };
+
 export default FAQSection;
