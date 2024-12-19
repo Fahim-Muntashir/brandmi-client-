@@ -34,10 +34,10 @@ const FAQSection = () => {
           <Plus className="h-4 w-4 mr-2" /> Add FAQ
         </Button>
       </div>
-      <div>
+      <div className="space-y-5">
         {questions.map((item, index) => (
           <div key={index} className="flex items-start gap-4">
-            <div className="flex-1">
+            <div className="flex-1 space-y-4">
               <UseInput
                 name={`faqs.${index}.question`}
                 type="text"
@@ -47,10 +47,12 @@ const FAQSection = () => {
             </div>
             <Button
               onClick={() => removeFaq(index)}
-              size={"icon"}
+              size={"sm"}
               type="button"
+              variant={"destructive"}
+              className="h-5 w-4"
             >
-              <X className="" />
+              <X />
             </Button>
           </div>
         ))}

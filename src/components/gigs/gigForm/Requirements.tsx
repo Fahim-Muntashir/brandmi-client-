@@ -21,6 +21,7 @@ const Requirements = () => {
         const setValues = (newValues: string[]) => field.onChange(newValues);
 
         const addRequirements = () => {
+          if (!requirement || requirement === "") return;
           if (!values.includes(requirement.trim())) {
             setValues([...values, requirement]);
           }
@@ -36,12 +37,17 @@ const Requirements = () => {
 
         return (
           <>
-            <div className="flex gap-2 mt-2">
+            <div className="flex items-center gap-2 mt-2">
               <Input
                 placeholder="Add a requirement"
                 onChange={(e) => setRequirement(e.target.value)}
               />
-              <Button type="button" onClick={addRequirements}>
+              <Button
+                type="button"
+                onClick={addRequirements}
+                variant={"outline"}
+                size={"sm"}
+              >
                 Add
               </Button>
             </div>
@@ -50,8 +56,10 @@ const Requirements = () => {
                 <div key={i} className="flex items-center justify-between">
                   <span>{item}</span>
                   <Button
-                    size={"icon"}
+                    size={"sm"}
                     type="button"
+                    variant={"destructive"}
+                    className="h-5 w-4"
                     onClick={() => deleteRequirement(item)}
                   >
                     <X />
