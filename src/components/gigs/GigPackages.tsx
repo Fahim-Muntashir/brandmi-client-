@@ -33,16 +33,14 @@ const GigPackages = ({ packages }: GigPackagesProps) => {
             value={pkg.name.toLowerCase()}
             className="mt-4 space-y-4"
           >
-            {/* pkg name */}
-            {/* pkg price */}
+            {/* pkg name & pkg price*/}
             <div className="flex justify-between items-center">
               <h3 className="font-semibold">{pkg.name} Package</h3>
               <span className="text-2xl font-bold">${pkg.price}</span>
             </div>
             {/* pkg description */}
             <p className="text-sm text-muted-foreground">{pkg.description}</p>
-            {/* delivery */}
-            {/* revision */}
+            {/* delivery & revision*/}
             <div className="space-y-2">
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4" />
