@@ -1,15 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import GigButtons from "../gigButtons";
 import { UseForm } from "@/components/customForm/UseForm";
 
 import { gigFormState } from "@/globalStore/gigFormState";
 import GigImageGallery from "./GigImageGallery";
 import { Button } from "@/components/ui/button";
+import { useRef } from "react";
 
 const GigGalleryForm = () => {
-  const { currentTab, setCurrentTab, formData, updateFormData } =
-    gigFormState();
-
+  const { setCurrentTab, formData, updateFormData } = gigFormState();
+  const getValuesRef = useRef<() => any>(() => ({}));
   const handleSubmit = (data: any) => {
     updateFormData("gallery", data);
     const updatedFormData = gigFormState.getState().formData;
@@ -22,11 +21,29 @@ const GigGalleryForm = () => {
     };
     console.log(gigFormData);
   };
+
   return (
-    <UseForm onSubmit={handleSubmit} defaultValues={formData.gallery}>
+    <UseForm
+      onSubmit={handleSubmit}
+      defaultValues={formData.gallery}
+      onWatch={({ getValues }) => {
+        getValuesRef.current = getValues; // Save `getValues` to the ref
+      }}
+    >
       <GigImageGallery />
       <div className="flex items-center justify-end gap-5">
-        <GigButtons currentTab={currentTab} setCurrentTab={setCurrentTab} />
+        {/* <GigButtons currentTab={currentTab} setCurrentTab={setCurrentTab} /> */}
+        <Button
+          variant="outline"
+          type="button"
+          onClick={() => {
+            const formValues = getValuesRef.current();
+            updateFormData("gallery", formValues);
+            setCurrentTab("description");
+          }}
+        >
+          Pre
+        </Button>
         <Button type="submit">Publish Gig</Button>
       </div>
     </UseForm>
