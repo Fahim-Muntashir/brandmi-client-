@@ -10,7 +10,7 @@ interface SellerInfoProps {
 }
 const SellerInfo = ({ seller }: SellerInfoProps) => {
   return (
-    <div className="border border-gray-300 py-4 px-6 ">
+    <div className="mt-10">
       {/* basic information */}
       <div className="grid grid-cols-2 gap-4 ">
         <div className="flex items-center gap-2">

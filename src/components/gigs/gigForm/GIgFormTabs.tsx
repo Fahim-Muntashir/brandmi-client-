@@ -1,5 +1,5 @@
 import { TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { TabType } from "@/hooks/useGigForm";
+import { TabType } from "@/globalStore/gigFormState";
 import { CheckCircle } from "lucide-react";
 interface GigFormTabsProps {
   currentTab: TabType;
