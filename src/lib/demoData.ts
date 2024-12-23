@@ -36,7 +36,7 @@ export const demoGig = {
         },
     ],
     description: `I will create a professional, responsive, and modern web application using the latest technologies including React, Next.js, and Tailwind CSS.
-  
+
   What you'll get:
   • Custom design and development
   • Mobile-responsive layout

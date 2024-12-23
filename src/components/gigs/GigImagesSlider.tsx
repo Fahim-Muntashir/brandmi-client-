@@ -29,14 +29,14 @@ const GigImagesSlider = () => {
         alt="Gig preview"
         height={500}
         width={500}
-        className="w-full max-h-[500px] object-contain rounded-lg  "
+        className="w-full max-h-[500px] rounded-md"
       />
       <Image
         src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=800&fit=crop"
         alt="Gig preview"
         height={500}
         width={500}
-        className="w-full max-h-[500px]   rounded-lg object-contain "
+        className="w-full max-h-[500px] rounded-md"
       />
     </Carousel>
   );

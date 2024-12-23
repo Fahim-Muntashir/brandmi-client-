@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axiosInstance, { ErrorResponse, ResponseOptions } from "@/axios/axios";
 import Navbar from "@/components/HomePage/Navbar/Navbar";
+import { Card } from "@/components/ui/card";
 import { cookies } from "next/headers";
 
 const Profile: React.FC = async () => {
@@ -29,7 +30,7 @@ const Profile: React.FC = async () => {
       <div className="bg-gray-100 min-h-screen p-6 font-sans">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
           {/* Profile Card */}
-          <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+          <Card>
             {/* Profile Image */}
             <img
               src="https://via.placeholder.com/100"
@@ -52,7 +53,7 @@ const Profile: React.FC = async () => {
                 Member since <strong>Jul 2023</strong>
               </p>
             </div>
-          </div>
+          </Card>
 
           {/* Gigs Section */}
           <div className="md:col-span-2">
