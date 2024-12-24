@@ -15,7 +15,7 @@ interface GigPackagesProps {
 
 const GigPackages = ({ packages }: GigPackagesProps) => {
   return (
-    <Card className="p-6 sticky top-4  z-50">
+    <Card className="p-6 sticky z-100 top-20">
       <Tabs defaultValue="standard" className="w-full">
         <TabsList className="grid grid-cols-3 w-full">
           {packages.map((pkg) => (

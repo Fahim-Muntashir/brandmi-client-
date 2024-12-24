@@ -5,15 +5,16 @@ import BusinessSolution from "@/components/HomePage/BusinessSolution/BusinessSol
 import Members from "@/components/members/Members";
 
 const HomePage = () => {
-  return (
-    <>
-      <Banner />
-      <Category />
-      <PopularServices />
-      <BusinessSolution />
-      <Members />
-    </>
-  );
+    return (
+        <>
+            <Banner />
+            <Category />
+            <PopularServices />
+            <BusinessSolution />
+            <Members />
+        </>
+    );
 };
 
 export default HomePage;
+

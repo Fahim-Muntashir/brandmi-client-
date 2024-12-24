@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <main className="sticky top-0 z-50">
       <header className="w-full border-b bg-white dark:bg-black ">
-        <div className="container mx-auto px-4 flex h-14 items-center ">
+        <div className="container mx-auto px-4 flex h-14 items-center">
           {/* logo  */}
           <div className="hidden md:flex items-center">
             <Logo />

@@ -5,10 +5,7 @@ import { UserRole } from "../RoleSelector";
 
 const RegisterWithGoogle = ({ selectedRole }: { selectedRole: UserRole }) => {
   const router = useRouter();
-  console.log(
-    "process.env.NEXT_PUBLIC_API_GOOGLE_UR,",
-    process.env.NEXT_PUBLIC_API_GOOGLE_UR
-  );
+
 
   const handleGoogleLogin = () => {
     const popup = window.open(
