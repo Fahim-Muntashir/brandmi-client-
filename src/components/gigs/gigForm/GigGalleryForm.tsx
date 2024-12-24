@@ -44,7 +44,7 @@ const GigGalleryForm = () => {
         >
           Pre
         </Button>
-        <Button type="submit">Publish Gig</Button>
+        <Button type="submit">Publish Gig</Button>;
       </div>
     </UseForm>
   );
