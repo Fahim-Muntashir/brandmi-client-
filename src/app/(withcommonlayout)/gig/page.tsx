@@ -1,7 +1,13 @@
 import GigDescription from "@/components/gigs/GigDescription";
-import GigImagesSlider from "@/components/gigs/GigImagesSlider";
+import FAQ from "@/components/gigs/GigFaq";
+import GigGallery from "@/components/gigs/GigGallery";
 import GigPackages from "@/components/gigs/GigPackages";
+import ReviewCard from "@/components/gigs/GigReview";
+import SellerInfo from "@/components/gigs/SellerInfo";
 import SellerProfile from "@/components/gigs/SellerProfile";
+import { reviewData } from "@/demoData/ReviewDemoData";
+import { gigSampleData } from "@/demoData/ServiceDemoData";
+
 import { demoGig } from "@/lib/demoData";
 
 const GigPage = () => {
@@ -10,21 +16,24 @@ const GigPage = () => {
       <main className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* left column */}
-          <div className="lg:col-span-2 ">
-            {/* title */}
-            <h1 className="text-3xl font-bold mb-6">{demoGig.title}</h1>
-            {/* seller profile component */}
+          <div className="lg:col-span-2 space-y-8 ">
+            <h1 className="text-3xl text-gray-900 font-semibold ">
+              logo{demoGig.title}
+            </h1>
             <SellerProfile seller={demoGig.seller} />
-            {/* service image */}
-            <div className="mb-8 ">
-              <GigImagesSlider />
+            <div>
+              <GigGallery images={gigSampleData.images} />
             </div>
-            {/* gig description  component */}
             <GigDescription />
+            <div className="bg-gray-100 p-5 rounded-md mt-10">
+              <SellerProfile seller={demoGig.seller} />
+              <SellerInfo seller={demoGig.seller} />
+            </div>
+            <FAQ questions={gigSampleData.faqs}></FAQ>
+            <ReviewCard reviews={reviewData}></ReviewCard>
           </div>
           {/* right column */}
           <div className="lg:col-span-1 ">
-            {/* gig package component */}
             <GigPackages packages={demoGig.packages} />
           </div>
         </div>
