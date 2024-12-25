@@ -6,11 +6,14 @@ import ReviewCard from "@/components/gigs/GigReview";
 import SellerInfo from "@/components/gigs/SellerInfo";
 import SellerProfile from "@/components/gigs/SellerProfile";
 import { reviewData } from "@/demoData/ReviewDemoData";
+import { SellerDemoData } from "@/demoData/SellerDemoData";
 import { gigSampleData } from "@/demoData/ServiceDemoData";
 
 import { demoGig } from "@/lib/demoData";
 
 const GigPage = () => {
+  // get single  service api
+  // get single user api
   return (
     <div className="min-h-screen">
       <main className="container mx-auto px-4 py-8">
@@ -27,7 +30,7 @@ const GigPage = () => {
             <GigDescription />
             <div className="bg-gray-100 p-5 rounded-md mt-10">
               <SellerProfile seller={demoGig.seller} />
-              <SellerInfo seller={demoGig.seller} />
+              <SellerInfo sellerProfile={SellerDemoData[0].profile} />
             </div>
             <FAQ questions={gigSampleData.faqs}></FAQ>
             <ReviewCard reviews={reviewData}></ReviewCard>
