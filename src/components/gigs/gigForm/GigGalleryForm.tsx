@@ -30,7 +30,9 @@ const GigGalleryForm = () => {
         getValuesRef.current = getValues; // Save `getValues` to the ref
       }}
     >
-      <GigImageGallery />
+      <div className="w-full">
+        <GigImageGallery />
+      </div>
       <div className="flex items-center justify-end gap-5">
         {/* <GigButtons currentTab={currentTab} setCurrentTab={setCurrentTab} /> */}
         <Button
@@ -44,7 +46,7 @@ const GigGalleryForm = () => {
         >
           Pre
         </Button>
-        <Button type="submit">Publish Gig</Button>;
+        <Button type="submit">Publish Gig</Button>
       </div>
     </UseForm>
   );
